@@ -1,0 +1,68 @@
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  border-radius: 20px;
+  background-color: #2e2e2e;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.movie-image {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 200px;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.movie-title {
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+.close {
+  color: #aaa;
+  align-self: flex-end;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.seats {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px;
+  margin-top: 20px;
+  width: 100%;
+}
+.seat {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 30px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+.seat.selected {
+  background-color: #f44336;
+}

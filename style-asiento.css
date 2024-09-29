@@ -1,0 +1,172 @@
+/*  ESTILOS GENERALES  */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 800; /* Para mayor contraste en el diseño*/
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: red;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Cambio para ver el menú al lado*/
+  height: 10%;
+  width: 100%;
+  background-color: blue;
+  padding: 0 20px;
+}
+
+.container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+  width: 100%;
+  background-color: aliceblue;
+}
+
+/*##############################################*/
+
+/* ESTILOS DEL HEADER- NAV-1  NAV-2  */
+/* Actualización de nombres*/
+
+header .nav-menu,
+.nav-logo,
+.nav-buscar,
+.nav-login {
+  /* margin: 2%; */
+  /* width:100%; Me da problemas con la disposición */
+  display: flex;
+  align-items: center;
+  /* justify-content: center;
+    background-color: red; */
+}
+
+.nav-menu {
+  padding-left: 20px;
+}
+
+.icon-menu {
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.nav-logo {
+  background-color: white;
+  height: 50px;
+  width: 50px;
+}
+
+.nav-buscar input {
+  padding: 5px; /* Estilo del input */
+}
+
+.nav-login {
+  padding-right: 20px;
+}
+
+.nav-login button {
+  padding: 5px 10px; /* Estilo del botón */
+}
+
+/* ---- MENU LATERAL ---- */
+
+#activar-menu {
+  display: none;
+}
+
+.container-menu {
+  position: absolute;
+  width: 250px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#activar-menu:checked ~ .container-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---- MENU LATERAL ---- */
+
+/* PÁGINA DE SELECCIÓN DE ASIENTOS */
+
+.poster-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+}
+
+.seating-section {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  align-items: center;
+}
+
+.seating-section button {
+  text-transform: uppercase;
+}
+
+.container {
+  flex-direction: row;
+}
+
+.poster {
+  width: 200px;
+  height: auto;
+}
+
+.movie-title {
+  margin-top: 10px;
+  font-size: 24px;
+  color: white;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  background-color: lightgray;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.seat:hover {
+  background-color: darkgray;
+}
+
+/* PÁGINA DE SELECCIÓN DE ASIENTOS */

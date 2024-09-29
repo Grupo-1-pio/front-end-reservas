@@ -16,23 +16,72 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="menu-style.css
+    "
+    />
+    <link rel="stylesheet" href="peli-card.css" />
   </head>
-  <body>
+  <body class="body">
     <header>
-      <div class="nav-1">
-        <nav>
-          <button>Menu</button>
-          <div>Logo</div>
-        </nav>
-      </div>
-      <div class="nav-2">
-        <nav>
+      <nav class="navbar">
+        <button class="btn-menu"><i class="fa-solid fa-bars"></i></button>
+        <div class="search">
           <input type="text" />
-          <div>User</div>
+          Buscar
+        </div>
+        Iniciar sesion
+      </nav>
+    </header>
+    <!-- MENU LATERAL  -->
+    <div class="menu">
+      <div class="cont-menu">
+        <nav>
+          <a href="index.html">Página principal</a>
+          <a href="pelicula.html">Selección de película</a>
+          <a href="form.html">Contacto</a>
         </nav>
       </div>
-    </header>
-    <div class="container">-- aqui ---</div>
-    <footer>footer</footer>
+    </div>
+    <!-- MENU LATERAL  -->
+
+    <div class="container">
+      <div class="card">
+        <img
+          src="https://play-lh.googleusercontent.com/MTJACf9JDBShVAwOS35DVNxvLLRnqxh-cFxsj8aabAow1EHrYnFX0I-0HShiS0ObopNkxnEl8heVgSh3rP8"
+          alt=""
+        />
+        <div class="card-label">
+          <p>Spider-man Across The Spider-Verse</p>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://static.wikia.nocookie.net/041856f5-9fcd-4042-80f1-30307de2cd8e/scale-to-width/755"
+          alt=""
+        />
+        <div class="card-label">
+          <p>DeadPool</p>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://image.tmdb.org/t/p/original/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg"
+          alt=""
+        />
+        <div class="card-label">
+          <p>Five Nights At Freddy's</p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <a href="#">Eventos</a>
+      <a href="#">Siguenos en </a>
+      <a href="#">Sobre nosotros</a>
+    </footer>
+    <script src="app-asiento.js"></script>
+    <script src="menu.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
