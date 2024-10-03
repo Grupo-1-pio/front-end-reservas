@@ -1,172 +1,489 @@
-/*  ESTILOS GENERALES  */
+/* RESET GENERAL */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Quicksand", sans-serif;
-  font-weight: 800; /* Para mayor contraste en el diseño*/
+  font-weight: 800;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  background-color: red;
+  justify-content: space-between;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e90ff, #87cefa);
+  /* Fondo mejorado con gradiente */
 }
 
+/* HEADER */
 header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-between; /* Cambio para ver el menú al lado*/
-  height: 10%;
+  height: 15vh;
   width: 100%;
-  background-color: blue;
+  background-color: #2f2f2f;
+  /* Fondo oscuro para un mejor contraste */
   padding: 0 20px;
+  border-bottom: 2px solid #f0f0f0;
+  /* Línea en el borde inferior */
 }
 
-.container {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
-
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 10%;
-  width: 100%;
-  background-color: aliceblue;
-}
-
-/*##############################################*/
-
-/* ESTILOS DEL HEADER- NAV-1  NAV-2  */
-/* Actualización de nombres*/
-
-header .nav-menu,
+/* NAVEGACIÓN Y LOGO */
+.nav-menu,
 .nav-logo,
 .nav-buscar,
 .nav-login {
-  /* margin: 2%; */
-  /* width:100%; Me da problemas con la disposición */
   display: flex;
   align-items: center;
-  /* justify-content: center;
-    background-color: red; */
 }
 
 .nav-menu {
-  padding-left: 20px;
+  gap: 20px;
 }
 
 .icon-menu {
-  font-size: 30px;
-  text-decoration: none;
-  color: black;
+  font-size: 35px;
+  color: white;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon-menu:hover {
+  color: #87cefa;
 }
 
 .nav-logo {
   background-color: white;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
 }
 
 .nav-buscar input {
-  padding: 5px; /* Estilo del input */
-}
-
-.nav-login {
-  padding-right: 20px;
+  padding: 10px;
+  width: 100%;
+  /* Ajustado el largo del input */
+  border-radius: 8px;
+  border: 2px solid lightgray;
+  font-size: 18px;
+  /* Texto más grande */
 }
 
 .nav-login button {
-  padding: 5px 10px; /* Estilo del botón */
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* ---- MENU LATERAL ---- */
+.nav-login button:hover {
+  background-color: #104e8b;
+}
 
+/* CONTENEDOR PRINCIPAL */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  padding: 50px;
+  /* Espaciado para que el contenido no esté pegado al borde */
+}
+
+/* MENÚ LATERAL */
+
+/* Ocultar checkbox */
 #activar-menu {
   display: none;
 }
 
-.container-menu {
-  position: absolute;
-  width: 250px;
-  height: 100vh;
+/* Fondo oscuro cuando el menú esté activo */
+.menu-overlay {
+  position: fixed;
   top: 0;
   left: 0;
-  transition: all 500ms ease;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
   visibility: hidden;
+  transition: opacity 0.5s ease;
+  z-index: 998;
 }
 
-#activar-menu:checked ~ .container-menu {
+#activar-menu:checked~.menu-overlay {
   opacity: 1;
   visibility: visible;
 }
 
-/* ---- MENU LATERAL ---- */
+/* Estilo del contenedor del menú */
+.container-menu {
+  position: fixed;
+  width: 300px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  /* Color de fondo oscuro */
+  color: #ff0000;
+  /* Color de texto */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateX(-100%);
+  opacity: 0;
+  z-index: 999;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+  /* Sombra del menú */
+}
+
+#activar-menu:checked~.container-menu {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Estilo de los enlaces del menú */
+.container-menu nav {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-menu nav a {
+  display: block;
+  width: 90%;
+  background-color: #333;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto al pasar el cursor por encima */
+.container-menu nav a:hover {
+  background-color: #87cefa;
+  /* Color del hover */
+  transform: scale(1.05);
+  /* Efecto de agrandamiento */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.container-menu nav a:active {
+  transform: scale(0.98);
+  /* Efecto de presión al hacer clic */
+}
+
+/* Botón de cierre del menú */
+.desactivar-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.desactivar-menu:hover {
+  color: #87cefa;
+}
 
 /* PÁGINA DE SELECCIÓN DE ASIENTOS */
-
 .poster-section {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 50%;
-  align-items: center;
 }
 
+.poster-section img {
+  width: 80%;
+  max-width: 900px;
+  height: auto;
+  margin-bottom: 20px;
+}
 .seating-section {
   display: flex;
   justify-content: space-around;
-  width: 50%;
+  width: 40%;
+  /* Ampliación para mejor distribución de asientos */
   align-items: center;
 }
 
 .seating-section button {
   text-transform: uppercase;
+  font-size: 18px;
+  /* Agrandamos el tamaño del texto */
+  padding: 10px;
+  /* Más espacio dentro del botón */
+  margin: 5px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.container {
-  flex-direction: row;
+.seating-section button:hover {
+  background-color: #d3d3d3;
 }
 
 .poster {
-  width: 200px;
+  width: 300px;
+  /* Aumentamos el tamaño del póster */
   height: auto;
 }
 
 .movie-title {
-  margin-top: 10px;
-  font-size: 24px;
+  margin-top: 15px;
+  font-size: 28px;
   color: white;
+  font-weight: 900;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  /* Efecto de sombra en el texto */
 }
 
 .seat-row {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .seat {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  background-color: lightgray;
-  border: none;
+  width: 60px;
+  /* Agrandamos el tamaño del asiento */
+  height: 60px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .seat:hover {
-  background-color: darkgray;
+  background-color: #d3d3d3;
+}
+
+/* FOOTER */
+/* RESET GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e90ff, #87cefa);
+  /* Fondo mejorado con gradiente */
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15vh;
+  width: 100%;
+  background-color: #000000;
+  /* Fondo oscuro para un mejor contraste */
+  padding: 0 20px;
+  border-bottom: 4px solid white;
+  /* Línea en el borde inferior */
+}
+
+/* NAVEGACIÓN Y LOGO */
+.nav-menu,
+.nav-logo,
+.nav-buscar,
+.nav-login {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  gap: 20px;
+}
+
+.icon-menu {
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon-menu:hover {
+  color: #87cefa;
+}
+
+.nav-logo {
+  background-color: white;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.nav-buscar input {
+  padding: 10px;
+  width: 300px;
+  /* Ajustado el largo del input */
+  border-radius: 8px;
+  border: 2px solid lightgray;
+  font-size: 16px;
+  /* Texto más grande */
+}
+
+.nav-login button {
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-login button:hover {
+  background-color: #104e8b;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  padding: 20px;
+  /* Espaciado para que el contenido no esté pegado al borde */
+}
+
+/* MENÚ LATERAL */
+#activar-menu {
+  display: none;
+}
+
+.container-menu {
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: white;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+#activar-menu:checked~.container-menu {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 /* PÁGINA DE SELECCIÓN DE ASIENTOS */
+.poster-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+}
+
+.seating-section {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  /* Ampliación para mejor distribución de asientos */
+  align-items: center;
+}
+
+.seating-section button {
+  text-transform: uppercase;
+  font-size: 20px;
+  /* Agrandamos el tamaño del texto */
+  padding: 15px;
+  /* Más espacio dentro del botón */
+  margin: 5px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.seating-section button:hover {
+  background-color: #d3d3d3;
+}
+
+.poster {
+  width: 300px;
+  /* Aumentamos el tamaño del póster */
+  height: auto;
+}
+
+.movie-title {
+  margin-top: 15px;
+  font-size: 28px;
+  color: white;
+  font-weight: 900;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  /* Efecto de sombra en el texto */
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.seat {
+  width: 60px;
+  /* Agrandamos el tamaño del asiento */
+  height: 60px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.seat:hover {
+  background-color: #d3d3d3;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1a202c;
+  padding: 10px;
+  color: white;
+  font-size: 14px;
+}
+
+footer a {
+  color: #4fd1c5;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
