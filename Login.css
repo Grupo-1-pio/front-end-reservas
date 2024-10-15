@@ -1,0 +1,191 @@
+body {
+    font-family: 'Arial', sans-serif; /* Establece la fuente del texto */
+    background-color: #2c2c2c; /* Color de fondo oscuro */
+    color: white; /* Color del texto en blanco */
+    display: flex; /* Utiliza Flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    height: 100vh; /* Altura del cuerpo igual a la altura de la ventana del navegador */
+    margin: 0; /* Elimina el margen predeterminado */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+}
+
+/* Estilos para el contenedor principal del formulario */
+.container {
+    background-color: #1c1c1c; /* Color de fondo más claro que el del body */
+    padding: 40px 30px; /* Espaciado interno alrededor del contenido */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Sombra alrededor del contenedor */
+    width: 90%; /* Ancho del contenedor al 90% del ancho de la pantalla */
+    max-width: 450px; /* Ancho máximo del contenedor */
+    text-align: center; /* Alineación del texto al centro */
+    position: relative; /* Posicionamiento relativo para elementos internos */
+    overflow: hidden; /* Oculta el contenido que se desborda del contenedor */
+    animation: slideIn 0.5s ease-out forwards; /* Animación al cargar el contenedor */
+}
+
+/* Definición de la animación de entrada deslizante */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50%); /* Comienza desde arriba */
+        opacity: 0; /* Comienza completamente transparente */
+    }
+    to {
+        transform: translateY(0); /* Se desplaza a su posición original */
+        opacity: 1; /* Se vuelve completamente visible */
+    }
+}
+
+/* Estilos para el encabezado principal */
+h1 {
+    color: #e63946; /* Color del texto del encabezado */
+    margin-bottom: 25px; /* Margen inferior para separación */
+    font-size: 28px; /* Tamaño de fuente del encabezado */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    transition: transform 0.3s, color 0.3s; /* Transición para transformaciones y color */
+}
+
+/* Efecto al pasar el cursor sobre el encabezado */
+h1:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    color: #ff6b6b; /* Cambia el color al pasar el cursor */
+}
+
+/* Estilos para el grupo de inputs */
+.input-group {
+    margin-bottom: 20px; /* Margen inferior para separación */
+    text-align: left; /* Alineación del texto a la izquierda */
+    position: relative; /* Posicionamiento relativo para elementos internos */
+}
+
+/* Estilos para las etiquetas de los inputs */
+label {
+    display: block; /* Cada etiqueta se muestra como un bloque */
+    margin-bottom: 7px; /* Margen inferior para separación */
+    font-weight: bold; /* Texto en negrita */
+    color: #ffffff; /* Color del texto de la etiqueta */
+    transition: color 0.3s; /* Transición para el cambio de color */
+}
+
+/* Efecto al pasar el cursor sobre la etiqueta */
+label:hover {
+    color: #e63946; /* Cambia el color al pasar el cursor */
+}
+
+/* Estilos para inputs de texto, contraseña y selects */
+input[type="text"],
+input[type="password"],
+select {
+    width: 90%; /* Ancho del 90% */
+    padding: 12px; /* Espaciado interno */
+    border: 2px solid transparent; /* Borde inicial transparente */
+    border-radius: 6px; /* Bordes redondeados */
+    background-color: #333; /* Color de fondo oscuro */
+    color: white; /* Color del texto en blanco */
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s; /* Transición para fondo, borde y transformación */
+}
+
+/* Estilos al enfocar los inputs */
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+    background-color: #444; /* Color de fondo más claro al enfocar */
+    border-color: #e63946; /* Cambia el color del borde al enfocar */
+    outline: none; /* Elimina el contorno por defecto */
+    transform: scale(1.02); /* Aumenta ligeramente el tamaño al enfocar */
+}
+
+/* Estilos para el botón */
+button {
+    background-color: #e63946; /* Color de fondo del botón */
+    color: white; /* Color del texto en blanco */
+    border: none; /* Sin borde */
+    padding: 14px; /* Espaciado interno */
+    border-radius: 6px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    width: 90%; /* Ancho del 90% */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 16px; /* Tamaño de fuente del botón */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s, filter 0.3s; /* Transiciones para varias propiedades */
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+button:hover {
+    background-color: #d62839; /* Cambia el color de fondo al pasar el cursor */
+    transform: translateY(-2px) scale(1.05); /* Mueve ligeramente hacia arriba y aumenta el tamaño */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Añade sombra al botón */
+    filter: brightness(1.1); /* Aumenta el brillo del botón */
+}
+
+/* Estilos para el botón que alterna la visibilidad de la contraseña */
+.toggle-password {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto en blanco */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin-top: 10px; /* Margen superior para separación */
+    transition: color 0.3s, transform 0.3s; /* Transición para color y transformación */
+}
+
+/* Efecto al pasar el cursor sobre el botón de alternar */
+.toggle-password:hover {
+    color: #e63946; /* Cambia el color al pasar el cursor */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
+}
+
+/* Estilos para mensajes de error */
+.error-message {
+    color: #ff3860; /* Color del texto en rojo para errores */
+    margin-top: 10px; /* Margen superior para separación */
+    font-size: 14px; /* Tamaño de fuente del mensaje */
+    animation: fadeIn 0.5s, shake 0.5s; /* Animaciones para aparecer y sacudirse */
+}
+
+/* Definición de la animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Comienza completamente transparente */
+    }
+    to {
+        opacity: 1; /* Se vuelve completamente visible */
+    }
+}
+
+/* Definición de la animación de sacudida */
+@keyframes shake {
+    0% {
+        transform: translateX(0); /* Sin movimiento inicial */
+    }
+    25% {
+        transform: translateX(-5px); /* Mueve ligeramente a la izquierda */
+    }
+    50% {
+        transform: translateX(5px); /* Mueve ligeramente a la derecha */
+    }
+    75% {
+        transform: translateX(-5px); /* Mueve ligeramente a la izquierda nuevamente */
+    }
+    100% {
+        transform: translateX(0); /* Regresa a la posición original */
+    }
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px; /* Reduce el tamaño de la fuente del encabezado */
+    }
+
+    .container {
+        padding: 30px; /* Reduce el espaciado interno del contenedor */
+    }
+
+    button {
+        padding: 12px; /* Reduce el espaciado interno del botón */
+    }
+
+    .input-group {
+        margin-bottom: 15px; /* Reduce el margen inferior de los grupos de inputs */
+    }
+}
