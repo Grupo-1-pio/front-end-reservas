@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(rgba(0 0 0 / 0.8), rgba(0 0 0 / 0.8)),
-    url(IMG/fondo.jpg);
+    url(../IMG/FONDO.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
